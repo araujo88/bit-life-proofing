@@ -1,0 +1,16 @@
+{
+    "messageType": "Proof of Life",
+    "author": {
+      "name": "Your Full Name",
+      "pgpFingerprint": "Your PGP Public Key Fingerprint"
+    },
+    "timestamp": "1700728729",
+    "location": "Your Current Location",
+    "personalStatement": "A personal statement or message",
+    "recentEvent": "Description of a recent personal event or current world event for time relevance",
+    "additionalInfo": {
+      "purpose": "State the purpose of this message",
+      "bitcoinBlockNumber": "Bitcoin block number closest to transaction time",
+      "otherRelevantInfo": "Any other information you deem relevant"
+    }
+}

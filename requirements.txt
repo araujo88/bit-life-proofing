@@ -1,0 +1,14 @@
+bitcoinlib==0.6.12
+certifi==2023.11.17
+charset-normalizer==3.3.2
+fastecdsa==2.3.0
+greenlet==3.0.1
+idna==3.4
+numpy==1.26.2
+pycryptodome==3.19.0
+python-gnupg==0.5.1
+requests==2.31.0
+schedule==1.2.1
+SQLAlchemy==2.0.23
+typing_extensions==4.8.0
+urllib3==2.1.0
