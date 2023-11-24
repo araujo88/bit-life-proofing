@@ -1,0 +1,40 @@
+@startuml
+participant "Signer" as Signer
+participant "GPG" as GPG
+participant "Bitcoin Blockchain" as Blockchain
+participant "Sidechain (Nostr)" as Sidechain
+participant "Verifier" as Verifier
+
+Signer -> GPG: Sign message
+activate GPG
+GPG -> Signer: Signed message
+deactivate GPG
+
+Signer -> GPG: Hash signed message
+activate GPG
+GPG -> Signer: Message hash
+deactivate GPG
+
+Signer -> Blockchain: Store message hash\n(in OP_RETURN)
+activate Blockchain
+Blockchain -> Signer: Transaction ID\n(Block Reference)
+deactivate Blockchain
+
+Signer -> Sidechain: Publish signed message\nwith TX ID & Block Ref
+activate Sidechain
+Sidechain -> Signer: Confirmation
+deactivate Sidechain
+
+note over Verifier: Verifier accesses Sidechain
+
+Verifier -> Sidechain: Retrieve signed message\nand TX ID & Block Ref
+activate Sidechain
+Sidechain -> Verifier: Signed message\nTX ID & Block Ref
+deactivate Sidechain
+
+Verifier -> Blockchain: Verify message hash\nwith TX ID & Block Ref
+activate Blockchain
+Blockchain -> Verifier: Verification result
+deactivate Blockchain
+
+@enduml
