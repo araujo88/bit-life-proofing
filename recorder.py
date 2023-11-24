@@ -1,7 +1,7 @@
 from bitcoinlib.wallets import Wallet, WalletError
-from bitcoinlib.transactions import Transaction, Output
+from bitcoinlib.transactions import Transaction
+from bitcoinlib.services.services import Service
 import schedule
-import time
 from datetime import datetime, timedelta
 from message import Message
 
@@ -22,6 +22,9 @@ class Recorder:
         except WalletError as e:
             print("Wallet already exists. Loading the existing wallet.")
             self.wallet = Wallet(wallet_name)
+
+        self.wallet.utxos_update()
+        self.wallet.info(detail=3)
 
         # Display the wallet seed and first public key
         #print("Wallet Seed (Mnemonic Phrase):", self.wallet.mnemonic)
@@ -50,12 +53,16 @@ class Recorder:
         key = self.wallet.get_key()
         address = key.address
         tx = Transaction(network='testnet')
-        tx.add_output(Output(1000, 'p2wpkh', address))
+        tx.add_output(value=1000, address=address)
         # Embed the provided hash in OP_RETURN
-        op_return_data = '6a4c' + message_hash  # Prefix for OP_RETURN
-        tx.add_output(Output(0, 'nulldata', op_return_data))
+        op_return_data = b'\x6a' + len(bytes.fromhex(message_hash)).to_bytes(1, 'little') + bytes.fromhex(message_hash)
+        tx.add_output(value=0, lock_script=op_return_data)
         tx.sign()
-        self.wallet.send(tx)
+        print(tx.verify())
+        tx.info()
+        rawhextx = tx.raw_hex()
+        tx = Service().sendrawtransaction(rawhextx)
+        #self.wallet.send([(address, 1000)], tx)
         self.reset_check_in_due_date()
 
     def start_monitoring(self):
@@ -65,7 +72,7 @@ class Recorder:
             if datetime.now() >= self.check_in_due_date:
                 self.check_in()
             schedule.run_pending()
-            time.sleep(60)
+            #time.sleep(60)
 
     def check_in(self):
         # Generate a new message and hash
