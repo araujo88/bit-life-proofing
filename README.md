@@ -1,6 +1,6 @@
 # bit-life-proofing
 
-A program that performs life-proof certifications transactions on Bitcoin network using OP_RETURN by combining PGP and hashing.
+A program that performs life-proof certifications transactions on Bitcoin network using OP_RETURN by combining PGP and hashing. Based on the [BitLDC protocol](https://github.com/araujo88/BitLDC).
 
 # Bitcoin Proof of Life Recorder
 
@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 1. **Set Up GPG**: Ensure GPG is configured with the necessary keys for signing.
 2. **Configuration**: Edit the main script or use environment variables to set the PGP fingerprint, GPG passphrase, and other settings.
-3. **Generate some fake coins**: Make sure to generate some coins on a testnet (https://coinfaucet.eu/en/btc-testnet/)[faucet] once you have obtained a wallet address for testing.
+3. **Generate some fake coins**: Make sure to generate some coins on a testnet [faucet](https://coinfaucet.eu/en/btc-testnet/) once you have obtained a wallet address for testing.
 4. **Run the Recorder**:
 
 ```sh
