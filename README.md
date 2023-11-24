@@ -1,8 +1,6 @@
-# bit-life-proofing
+# Bitcoin Proof of Life Recorder
 
 A program that performs life-proof certifications transactions on Bitcoin network using OP_RETURN by combining PGP and hashing. Based on the [BitLDC protocol](https://github.com/araujo88/BitLDC).
-
-# Bitcoin Proof of Life Recorder
 
 ## Overview
 
