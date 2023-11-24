@@ -4,7 +4,7 @@ A program that performs life-proof certifications transactions on Bitcoin networ
 
 ## Overview
 
-The Bitcoin Proof of Life Recorder is a Python project designed to automate the process of recording a "proof of life" message on the Bitcoin blockchain. This application uses the `bitcoinlib` library to interact with the Bitcoin network, specifically the testnet, and embeds custom messages into the blockchain using `OP_RETURN` transactions.
+The Bitcoin Proof of Life Recorder is a Python project designed to automate the process of recording a "proof of life" message on the Bitcoin blockchain. This application uses the `bitcoinlib` library to interact with the Bitcoin network, specifically the testnet, and embeds custom messages into the blockchain using `OP_RETURN` transactions. More details can be found on the [design doc](design-doc.md) and the overall architecture on the [sequence diagram](sequence-diagram.svg).
 
 ## Features
 
