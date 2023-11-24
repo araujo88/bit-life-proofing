@@ -61,6 +61,7 @@ The project includes:
 
 4. **Verification Process**:
    - Verifier retrieves the message and references from the Sidechain.
+   - Verifier checks authenticity of signed message with user's PGP fingerprint.
    - Verifier confirms the message hash against the stored hash in the Blockchain.
 
 ## User Interface
