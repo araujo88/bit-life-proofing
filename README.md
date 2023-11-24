@@ -1,6 +1,19 @@
 # bit-life-proofing
 
-A program that performs life-proof certifications transactions on Bitcoin network using OP_RETURN by combining PGP and hashing
+A program that performs life-proof certifications transactions on Bitcoin network using OP_RETURN by combining PGP and hashing.
+
+# Bitcoin Proof of Life Recorder
+
+## Overview
+
+The Bitcoin Proof of Life Recorder is a Python project designed to automate the process of recording a "proof of life" message on the Bitcoin blockchain. This application uses the `bitcoinlib` library to interact with the Bitcoin network, specifically the testnet, and embeds custom messages into the blockchain using `OP_RETURN` transactions.
+
+## Features
+
+- **Automated Proof of Life Messages**: Generates and embeds proof of life messages into the Bitcoin blockchain.
+- **PGP Signature**: Integrates GPG for signing messages to ensure authenticity.
+- **Flexible Scheduling**: Allows setting custom intervals for message recording.
+- **Testnet Support**: Designed to work with Bitcoin's testnet for safe experimentation and testing.
 
 ## Requirements
 
@@ -22,6 +35,63 @@ The exact method to do this depends on your operating system. For example:
   ```bash
   brew install gmp
   ```
+
+## Installation
+
+Before running the project, ensure you have Python 3.x installed.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/araujo88/bit-life-proofing.git
+cd bit-life-proofing
+```
+
+Setup the virtualenv and install the required dependencies:
+
+```sh
+python -m venv .env
+source .env/bin/activate
+pip install -r requirements.txt
+```
+
+## Usage
+
+1. **Set Up GPG**: Ensure GPG is configured with the necessary keys for signing.
+2. **Configuration**: Edit the main script or use environment variables to set the PGP fingerprint, GPG passphrase, and other settings.
+3. **Generate some fake coins**: Make sure to generate some coins on a testnet (https://coinfaucet.eu/en/btc-testnet/)[faucet] once you have obtained a wallet address for testing.
+4. **Run the Recorder**:
+
+```sh
+python main.py
+```
+
+## Components
+
+- **Recorder**: Manages the creation and broadcasting of transactions with proof of life messages.
+- **Message**: Handles the generation, signing, and verification of proof of life messages.
+
+## Customization
+
+- **Message Content**: Customize the content of the proof of life message in `Message` class.
+- **Intervals**: Set different check-in intervals in the `Recorder` class.
+
+## Contributing
+
+Contributions to the project are welcome! Please adhere to the following guidelines:
+
+- Fork the repository and create your feature branch.
+- Write clear and concise commit messages.
+- Ensure your code adheres to the project's coding standards.
+- Create a pull request with a detailed description of your changes.
+
+## License
+
+This project is licensed under the GPL License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+This project is for educational and testing purposes only. It interacts with the Bitcoin testnet and should not be used for real transactions on the Bitcoin mainnet until the project attains more maturity.
 
 ## Examples
 
