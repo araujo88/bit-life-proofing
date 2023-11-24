@@ -93,6 +93,12 @@ This project is licensed under the GPL License - see the [LICENSE](LICENSE) file
 
 This project is for educational and testing purposes only. It interacts with the Bitcoin testnet and should not be used for real transactions on the Bitcoin mainnet until the project attains more maturity.
 
+## TODOs
+
+- Integrate with a sidechain/nostr
+- Incorporate multisig functionalities
+- Write unit tests
+
 ## Examples
 
 ### Generating a message, signing it and veryfing it
